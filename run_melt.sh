@@ -82,6 +82,10 @@ ro_faidx_dir=$(dirname "$fastaidx")
 bname_fa=$(basename "$fasta" .fa)
 cp "${ro_faidx_dir}/${bname_fa}.fa.fai" "${ro_fa_dir}/${bname_fa}.fa.fai"
 
+# print directory that .fa file is in
+echo "FASTA DIRECTORY:"
+echo "$(ls $(dirname "$fasta"))"
+
 # unzip all the files within the melt folder
 tar -xf "${melt}"
 melt="$(basename "$melt" .tar)"
