@@ -108,10 +108,10 @@ name2=$(extract_subject_name "$(basename "$cram2" .cram)")
 
 # Run the script in parallel for both cram1 and cram2
 (
-    process_file "$cram1" "$fasta", "$melt"
+    process_file "$cram1" "$fasta" "$melt"
 ) &
 (
-    process_file "$cram2" "$fasta", "$melt"
+    process_file "$cram2" "$fasta" "$melt"
 ) &
 
 
