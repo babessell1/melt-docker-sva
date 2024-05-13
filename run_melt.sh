@@ -42,7 +42,7 @@ process_file() {
     ####################################################################
 
     # run melt on SVA elements
-    java -Xmx8G -jar "${melt}/MELT.jar" Single -bamfile "$cram" -w output -t "${melt}/me_refs/Hg38/SVA_MELT.zip" -h "$fasta" -n "${melt}/add_bed_files/Hg38/Hg38.genes.bed" -c 25 -mcmq 95 #-bowtie bowtie2 -samtools samtools
+    java -Xmx8G -jar "${melt}/MELT.jar" Single -bamfile "$cram" -w output/ -t "${melt}/me_refs/Hg38/SVA_MELT.zip" -h "$fasta" -n "${melt}/add_bed_files/Hg38/Hg38.genes.bed" -c 25 -mcmq 95 #-bowtie bowtie2 -samtools samtools
     # print directory with botwtie2 index
     echo "CRAM DIRECTORY"
     echo "$(ls $(dirname "$cram"))"
