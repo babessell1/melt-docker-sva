@@ -161,4 +161,9 @@ fi
 
 # Both tasks succeeded, create a TAR with outputs
 echo "${name1}___${name2}.tar"
+
+# print the contents of the current directory
+echo "current directory"
+echo "$(ls)"
+
 tar cf "out/${name1}___${name2}.tar" "${bname1}.vcf" "${bname2}.vcf"
