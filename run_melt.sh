@@ -19,8 +19,16 @@ cleanup() {
     local out="$2"
     local bname=$(basename "$cram" .cram)
     
-    # Remove CRAM files and associated output
-    rm -f "${out}/${bname}*"
+    # Remove CRAM files and associated output as well as:
+    # rename the vcf to have the {subject_name}.vcf
+    mv "${out}/SVA.final_comp.vcf" "${bname}.vcf"
+    
+    # make a text file saying the file finished moving (safegaurd for spot instance termination)
+    echo "moved" > "${bname}_moved.txt"
+
+    # remove all other files and directories
+    rm -f -r "${out}"
+
 }
 
 
@@ -136,12 +144,12 @@ if [ "$task1_status" -ne 0 ] || [ "$task2_status" -ne 0 ]; then
     # Determine which task failed and create a TAR for the successful task
     if [ "$task1_status" -eq 0 ]; then  # task 1 succeeded, only create a TAR for task 1
         echo "Task 1 failed. Creating TAR for $name1 only..."
-        tar cf "out/${name1}.tar" "output1"
+        tar cf "out/${name1}.tar" "${bname1}.vcf"
         # exit with a pass to ensure tibanna will take what it can get
         exit 0
     elif [ "$task2_status" -eq 0 ]; then  # task 2 succeeded, only create a TAR for task 2
         echo "Task 2 failed. Creating TAR for $name2 only..."
-        tar cf "out/${name2}.tar" "output2"
+        tar cf "out/${name2}.tar" "${bname2}.vcf"
         # exit with a pass to ensure tibanna will take what it can get
         exit 0
     else
@@ -153,4 +161,4 @@ fi
 
 # Both tasks succeeded, create a TAR with outputs
 echo "${name1}___${name2}.tar"
-tar cf "out/${name1}___${name2}.tar" "output1" "output2"
+tar cf "out/${name1}___${name2}.tar" "${bname1}.vcf" "${bname2}.vcf"
