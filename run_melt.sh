@@ -18,6 +18,10 @@ cleanup() {
     local cram="$1"
     local out="$2"
     local bname=$(basename "$cram" .cram)
+
+    # print the current directory
+    echo "current directory cleanup"
+    echo "$(ls)"
     
     # Remove CRAM files and associated output as well as:
     # rename the vcf to have the {subject_name}.vcf
