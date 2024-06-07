@@ -164,8 +164,8 @@ fi
 echo "${name1}___${name2}.tar"
 
 # move vcfs to output directory
-mv "output1/${bname1}.vcf" "output/${name1}.vcf"
-mv "output2/${bname2}.vcf" "output/${name2}.vcf"
+mv "output1/${name1}.vcf" "output/${name1}.vcf"
+mv "output2/${name2}.vcf" "output/${name2}.vcf"
 
 # print the contents of the current directory
 echo "current directory"
