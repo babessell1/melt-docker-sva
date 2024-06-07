@@ -171,5 +171,11 @@ mv "output2/${bname2}.vcf" "output/${name2}.vcf"
 echo "current directory"
 echo "$(ls)"
 
+# print output1 directory
+echo "output1 directory"
+echo "$(ls output1)"
+echo "output2 directory"
+echo "$(ls output2)"
+
 # tar the output directory
 tar cf "out/${name1}___${name2}.tar" "output"
