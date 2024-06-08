@@ -25,10 +25,10 @@ cleanup() {
     
     # Remove CRAM files and associated output as well as:
     # rename the vcf to have the {subject_name}.vcf
-    mv "${out}/SVA.final_comp.vcf" "${out}/${bname}.vcf"
+    #mv "${out}/SVA.final_comp.vcf" "${out}/${bname}.vcf"
     
     # make a text file saying the file finished moving (safegaurd for spot instance termination)
-    echo "moved" > "${bname}_moved.txt"
+    #echo "moved" > "${bname}_moved.txt"
 
 }
 
@@ -164,8 +164,8 @@ fi
 echo "${name1}___${name2}.tar"
 
 # move vcfs to output directory
-mv "output1/${name1}.vcf" "output/${name1}.vcf"
-mv "output2/${name2}.vcf" "output/${name2}.vcf"
+mv "output1/SVA.final_comp.vcf" "output/${name1}.vcf"
+mv "output2/SVA.final_comp.vcf" "output/${name2}.vcf"
 
 # print the contents of the current directory
 echo "current directory"
