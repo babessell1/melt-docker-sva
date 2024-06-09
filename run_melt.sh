@@ -102,6 +102,7 @@ echo "$(ls $melt)"
 # out = dir to export to
 mkdir -p output1
 mkdir -p output2
+mkdir -p output
 mkdir -p out
 mkdir -p exitcodes
 
